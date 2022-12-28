@@ -14,24 +14,29 @@ export const Normal=()=> {
 
   const choices = ['rock', 'paper', 'scissors'];
 
+
   function handleClick(choice) {
     setPlayerChoice(choice);
-    setComputerChoice(choices[Math.floor(Math.random() * 3)]);
-    decideWinner();
+    let compchoice=choices[Math.floor(Math.random() * 3)]
+    setComputerChoice(compchoice);
+    decideWinner(choice,compchoice);
   }
 
-  function decideWinner() {
-    if (playerChoice === computerChoice) {
-      setResult("It's a tie!");
-    } else if (
-      (playerChoice === 'rock' && computerChoice === 'scissors') ||
-      (playerChoice === 'paper' && computerChoice === 'rock') ||
-      (playerChoice === 'scissors' && computerChoice === 'paper')
+  function decideWinner(choice,compchoice) {
+    console.log(choice + " " + compchoice + " " + result)
+    if (choice === compchoice) {
+      setResult("Beraberesiniz!");
+    } 
+    else if (
+      (choice === 'rock' && compchoice === 'scissors') ||
+      (choice === 'paper' && compchoice === 'rock') ||
+      (choice === 'scissors' && compchoice === 'paper')
     ) {
-      setResult('You win!');
+      setResult('Sen Kazandın!');
       score++
-    } else {
-      setResult('Computer wins.');
+    } 
+    else {
+      setResult('Bilgisayar Kazandı.');
     }
   }
 
@@ -39,13 +44,13 @@ export const Normal=()=> {
     <div>
       <div>
         <h1>NORMAL OYUN</h1>
-      <img src={tas}  alt="logo" onClick={() => handleClick('rock')}/>
-      <img src={kagit}  alt="logo" onClick={() => handleClick('paper')}/>
-      <img src={makas}  alt="logo" onClick={() => handleClick('scissors')}/>
+      <img src={tas}  alt="logo" height={400} width={400} onClick={() => handleClick('rock')}/>
+      <img src={kagit}  alt="logo" height={400} width={400} onClick={() => handleClick('paper')}/>
+      <img src={makas}  alt="logo" height={400} width={400} onClick={() => handleClick('scissors')}/>
       </div>
       {playerChoice && (
         <div>
-          You chose {playerChoice}. Computer chose {computerChoice}.{' '}
+          Senin Seçimin: {playerChoice}. Bilgisayarın Seçimi: {computerChoice}.{' '}
           {result}.
           <div>
             Score:{score}

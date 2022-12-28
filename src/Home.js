@@ -6,11 +6,13 @@ export const Home=()=>{
     const navigation=useNavigate();
     return(
         <div>
-            <img src={tkm}  alt="logo"/>
+            <img src={tkm}  alt="logo" />
             <h1>TAŞ, KAĞIT, MAKAS OYUNU</h1>
-            <Button onClick={()=>navigation('normal')}>Klasik Mod</Button>
-            <Button onClick={()=>navigation('zoroyun')}>Zor Oyun Modu</Button>
-            <h2>DSAFGFHJK</h2>
+            <Button variant="info" size="lg" onClick={()=>navigation('normal')}>Klasik Mod</Button>
+            <Button variant="warning" size="lg" onClick={()=>navigation('zoroyun')}>Zor Oyun Modu</Button>
+            <h2> 2 FARKLI OYUN MODU VARDIR.  
+                KLASİK OYUN NORMAL TAŞ KAĞIT MAKAS OYUNUDUR. 
+                ZOR OYUN  İSE KULLANICININ ÜST ÜSTE AYNI ÖGEYİ SEÇMESİNE İZİN VERMEZ.  </h2>
         </div>
     )
 }

@@ -22,8 +22,9 @@ export const Zoroyun=()=> {
   function handleClick(choice) {
         if(lastChoice!==choice){
         setPlayerChoice(choice);
-        setComputerChoice(choices[Math.floor(Math.random() * 3)]);
-        decideWinner();
+        let compchoice=choices[Math.floor(Math.random() * 3)]
+        setComputerChoice(compchoice);
+        decideWinner(choice,compchoice);
         SetlastChoice(choice);
         setlchandle(false)
         console.log(lchandle)
@@ -33,18 +34,18 @@ export const Zoroyun=()=> {
         }
   }
 
-  function decideWinner() {
-    if (playerChoice === computerChoice) {
-      setResult("It's a tie!");
+  function decideWinner(choice,compchoice) {
+    if (choice === compchoice) {
+      setResult("Beraberesiniz!");
     } else if (
-      (playerChoice === 'rock' && computerChoice === 'scissors') ||
-      (playerChoice === 'paper' && computerChoice === 'rock') ||
-      (playerChoice === 'scissors' && computerChoice === 'paper')
+      (choice === 'rock' && compchoice === 'scissors') ||
+      (choice === 'paper' && compchoice === 'rock') ||
+      (choice === 'scissors' && compchoice === 'paper')
     ) {
-      setResult('You win!');
+      setResult('Sen Kazandın!');
       score++
     } else {
-      setResult('Computer wins.');
+      setResult('Bilgisayar Kazandı.');
     }
   }
 
@@ -52,13 +53,13 @@ export const Zoroyun=()=> {
     <div>
       <div>
       <h1>ZOR OYUN</h1>
-      <img src={tas}  alt="logo" onClick={() => handleClick('rock')}/>
-      <img src={kagit}  alt="logo" onClick={() => handleClick('paper')}/>
-      <img src={makas}  alt="logo" onClick={() => handleClick('scissors')}/>
+      <img src={tas}  alt="logo" height={400} width={400} onClick={() => handleClick('rock')}/>
+      <img src={kagit}  alt="logo" height={400} width={400} onClick={() => handleClick('paper')}/>
+      <img src={makas}  alt="logo" height={400} width={400}  onClick={() => handleClick('scissors')}/>
       </div>
       {playerChoice && !lchandle && (
         <div>
-          You chose {playerChoice}. Computer chose {computerChoice}.{' '}
+          Senin seçimin: {playerChoice}. Bilgisayarın seçimi: {computerChoice}.{' '}
           {result}.
           <div>
             Score:{score}
