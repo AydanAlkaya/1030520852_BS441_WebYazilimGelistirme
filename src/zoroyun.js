@@ -72,7 +72,7 @@ export const Zoroyun=()=> {
           Zorlu mod da üst üste aynı butonu seçemezsin.Başka bir şey seç.
         </p>
       )}
-      <Button onClick={()=>navigation('/')}>Home</Button>
+      <Button variant="danger" size="lg" onClick={()=>navigation('/')}>Home</Button>
     </div>
   );
 }

@@ -50,7 +50,7 @@ export const Normal=()=> {
       </div>
       {playerChoice && (
         <div>
-          Senin Seçimin: {playerChoice}. Bilgisayarın Seçimi: {computerChoice}.{' '}
+          Senin seçimin: {playerChoice}. Bilgisayarın seçimi: {computerChoice}.{' '}
           {result}.
           <div>
             Score:{score}
@@ -58,7 +58,7 @@ export const Normal=()=> {
           
           </div>
       )}
-      <Button onClick={()=>navigation('/')}>Home</Button>
+      <Button variant="danger" size="lg" onClick={()=>navigation('/')}>Home</Button>
     </div>
     
   );
